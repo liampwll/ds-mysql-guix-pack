@@ -1,0 +1,25 @@
+* Initialise MySQL
+Make sure you note down the password.
+#+begin_src shell
+./bin/mysqld --defaults-file=my.cnf --initialize
+#+end_src
+* Start MySQL
+#+begin_src shell
+./bin/mysqld --defaults-file=my.cnf
+#+end_src
+* Connect to MySQL
+#+begin_src shell
+./bin/mysql --socket=./mysql/data/socket -u root -p
+#+end_src
+* Change Password
+#+begin_src sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+#+end_src
+* Stop MySQL
+#+begin_src shell
+./bin/mysqladmin --socket=./mysql/data/socket shutdown -u root -p
+#+end_src
+or
+#+begin_src sql
+SHUTDOWN;
+#+end_src
